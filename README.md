@@ -24,7 +24,7 @@
 - Database : Sqlite3, PostGre  
 
 ## Database tables & Schema & ERD  
-* 1단계 분류 : 각 캠퍼스(매장) 테이블  
+* 1단계 분류 : 각 캠퍼스(매장) 테이블  
   - Schema : index / 캠퍼스구분 / 캠퍼스명  
 * 2단계 분류 : 각 학과 테이블  
   - Schema : Index / 학과명  
