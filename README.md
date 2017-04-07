@@ -48,8 +48,8 @@
   * Mypage(학생시간표,장바구니,교수시간표,직원별판매전표,강의실시간표,지점별판매전표)  
   - Schema : 전체보기와 동일  
 
-## Naming rules
+## Naming rules  
 -  해당TableName_ColName  
 
-## Class & Method structure
+## Class & Method structure  
 -  
