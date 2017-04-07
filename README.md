@@ -21,18 +21,28 @@
 ## Development FrameWork
 - Backend: ruby on rails
 - Frontend: React.js || Angular2 || HTML ***....***
-- Database : Sqlite3, PostGre  
+- Database : Sqlite3, Postgre  
 
 ## Database tables & Schema & ERD  
-* 1단계 분류 : 각 캠퍼스(매장) 테이블  
-  - Schema : index / 캠퍼스구분 / 캠퍼스명  
-* 2단계 분류 : 각 학과 테이블  
-  - Schema : Index / 학과명  
-* 3단계 분류 : 각 과별 시간표 테이블  
-  - Schema : 과목명 /
-* +전체보기  
+* 1단계 분류 : 전체 캠퍼스(매장) 테이블  
+  - Schema : 캠퍼스(지역)구분 | 캠퍼스명  
+  - ex) 용인 | 죽전캠퍼스  
+  - ex) 서울 | 압구정점  
+    
+* 2단계 분류 : 단과대(재고분류)별 테이블  
+  - Schema : 단과대(매장)명 | 소속과(재고분류)  
+  - ex) 외국어대 | 영문과  
+  - ex) 반포점 | 의류  
+* 3단계 분류 : 과별시간표(재고목록) 테이블  
   - Schema :  
+    - 학교 - 과목명 | 이수구분 | 교수명 | 학점 | 요일 | 시간 | 강의실 | 잔여석  
+    - 매장 - 제품명 | 사이즈 | 색상 | 재고량 | ***...***  
+* +전체보기 : 모든과목(제품) 한번에 보기  
+  - Schema :  
+  - 학교 - 과목명 | 이수구분 | 교수명 | 학점 | 요일 | 시간 | 강의실 | 잔여석  
+  - 매장 - 제품명 | 사이즈 | 색상 | 재고량 | ***...***  
+
 ## Naming rules
-- 
+-  
 ## Class & Method structure
-- 
+-  
