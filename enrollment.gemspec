@@ -7,7 +7,7 @@ require "enrollment/version"
 Gem::Specification.new do |s|
   s.name        = "enrollment"
   s.version     = Enrollment::VERSION
-  s.authors     = ["채민균"]
+  s.authors     = ["ChaeMinGyun"]
   s.email       = ["coalsrbs7@gmail.com"]
   s.homepage    = "TODO"
   s.summary     = "TODO: Summary of Enrollment."
