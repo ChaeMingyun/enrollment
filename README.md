@@ -6,6 +6,7 @@
  - 수강신청 시스템이 필요한 프로젝트
  - 물품 구매 시스템을 만들어야 하는 프로젝트
  - 주기적으로 받아야 하는 예약 시스템
+ - 티케팅 시스템
 
  이를 위해서는 다음의 기능이 필요합니다.
  - 사용자 페이지
@@ -51,5 +52,12 @@
 ## Naming rules  
 -  해당TableName_ColName  
 
-## Class & Method structure  
--  
+## Class & Method structure
+  
+### Model Class
+* user(누가 등록을 하는지)
+* target(무엇을 등록을 하는지)
+* user_target(누가 무엇을 등록 했는지)
+* shopping_basket(누가 무엇을 등록 할건지)
+
+### Controller&View Class
