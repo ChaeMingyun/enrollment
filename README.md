@@ -53,7 +53,7 @@
 -  해당TableName_ColName  
 
 ## Class & Method structure
-  
+
 ### Model Class
 * user(누가 등록을 하는지)
 * target(무엇을 등록을 하는지)
@@ -61,3 +61,13 @@
 * shopping_basket(누가 무엇을 등록 할건지)
 
 ### Controller&View Class
+#### View  
+* 전체 item 목록    
+  * 꽉찬 item 목록 bold or fontcolor 등 별도 표시  
+* User의 개인 item 목록  
+* 중간자(지역별지점/단과대별) item 리스트  
+
+#### Controller  
+* 전체 목록 Action  
+  * 물품/강의의 각 col에 해당하는 변수들 생성  
+*   
