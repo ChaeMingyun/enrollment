@@ -54,37 +54,48 @@
   - Schema : 전체보기와 동일  
 
 ## Database Schema
+<!--빠진 부분이 있는지 살펴주기 바람-->
 ### Category
-- t.string   :name
-- t.string   :route_name
-- t.text     :info
-
+```ruby
+t.string   :name
+t.string   :route_name
+t.text     :info
+```
 info는 html_safe를 걸어서 아무 말이나 넣을 수 있게 하자
 ### Course
-- t.string   :name
-- t.string   :route_name
-- t.text     :info
-- t.integer  :school_id
+```ruby
+t.string   :name
+t.string   :route_name
+t.text     :info
+t.integer  :school_id
+```
 ### Class
-- t.string   :name
-- t.text     :info
-- t.datetime :time_limit_start
-- t.datetime :time_limit_end
-- t.integer  :personnel_limit
-- t.string   :limit_on_ruby
-- t.integer  :admin_id
-- t.integer  :course_id
+```ruby
+t.string   :name
+t.string   :info
+t.text     :content
+t.datetime :time_limit_start
+t.datetime :time_limit_end
+t.integer  :personnel_limit
+t.string   :limit_on_ruby
+t.integer  :admin_id
+t.integer  :course_id
+```
 
 time_limit: 수강 시간 제한  
 personnel_limit: 수강 인원 제한  
 limit_on_ruby: 여기에 루비 문법을 넣으면, 그 루비 문법대로 실행되어 제한을 건다.
+
+앞선 Course와 Category와 다르게 설명하는 부분은 info와 content 두 부분이다. info에는 중요한 정보(강의실, 학점...)가 먼저 노출되는 자리이고, content는 이제 이미지나 내용을 이용해서 구구절절 설명하는 부분이다.
 ### Enroll
-- t.integer :user_id
-- t.integer :class_id
+t.integer :user_id
+t.integer :class_id
 
 ## Naming rules  
+<!--최대한 추상적으로 광범위하게 기술 바람-->
 -  이름의 구분자는 _ 로 한다(-와 PascalCase, camelCase 를 사용하지 않는다)
 -  이름은 최대한 수강신청에 알맞는 어감으로 해야 한다.(shopping -> enroll, item-> class)
+-  boolean을 반환하는 메소드 끝에는 물음표를 붙인다.
 -  다음의 단어를 위주로 배치한다.
     - enroll (등록하다)
     - school (course의 묶음)
@@ -93,22 +104,30 @@ limit_on_ruby: 여기에 루비 문법을 넣으면, 그 루비 문법대로 실
     - limit (수강 제한의 의미)
     - authentication (권한 제한의 의미)
 
+
+## Route
+
 ## Class & Method structure
-
+<!--route.rb 처럼 기술하기 바람-->
+```ruby
+root 'home#index'
+```
 ### Model Class
-* user(누가 등록을 하는지)
-* target(무엇을 등록을 하는지)
-* user_target(누가 무엇을 등록 했는지)
-* shopping_basket(누가 무엇을 등록 할건지)
+* current_user : 현재 사용자를 반환
+* enroll(class_id) : 현재 사용자를 그 수업에 등록
+* is_class_limited?(class_id) : 현재 사용자가 이 수업을 신청할 수 있는지
+* is_class_time_limited?(class_id) : 해당 수업의 시간이 마감됐는지
+* is_class_personnel_limited?(class_id) : 해당 수업의 인원이 다 찼는지
 
-### Controller&View Class
+### Controller&View
+#### Controller
+* 전체 목록 Action  
+* 물품/강의의 각 col에 해당하는 변수들 생성  
+
+**(Route를 정하고 구체적으로 기술 바람)**
 #### View  
 * 전체 class 목록    
   * 꽉찬 class 목록 bold or fontcolor 등 별도 표시  
 * User의 개인 class 목록  
 * 중간자(지역별지점/단과대별) class 리스트  
-
-#### Controller  
-* 전체 목록 Action  
-  * 물품/강의의 각 col에 해당하는 변수들 생성  
-*   
+**(Route를 정하고 구체적으로 기술 바람)**
