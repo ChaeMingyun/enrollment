@@ -12,8 +12,10 @@
  - 사용자 페이지
   - 신청 가능한 목록을 표시
   - 항목에 들어가면 이미지와 정보 출력
- - 관리자 페이지
+ - 전체 관리자 페이지
   - 카테고리/목록 관리
+  - Course 관리자 임명, 퇴출
+ - 부분 관리자 페이지
   - 신청 목록 만들기
     - 마감 조건 설정: 기간 설정, 수량
     - 이미지와 정보 입력, 생성
@@ -23,8 +25,10 @@
 - Backend: ruby on rails
 - Frontend: React.js || Angular2 || HTML ***....***
 - Database : Sqlite3, Postgre  
-
-## Database tables & Schema & ERD  
+### Using Pakage
+- sunspot || will_paginate || kaminari
+-
+## Database ERD  
 * 1단계 분류 : 전체 캠퍼스(매장) 테이블  
   - Schema : 캠퍼스(지역)구분 | 캠퍼스명  
   - ex) 용인 | 죽전캠퍼스  
@@ -49,8 +53,45 @@
   * Mypage(학생시간표,장바구니,교수시간표,직원별판매전표,강의실시간표,지점별판매전표)  
   - Schema : 전체보기와 동일  
 
+## Database Schema
+### Category
+- t.string   :name
+- t.string   :route_name
+- t.text     :info
+
+info는 html_safe를 걸어서 아무 말이나 넣을 수 있게 하자
+### Course
+- t.string   :name
+- t.string   :route_name
+- t.text     :info
+- t.integer  :school_id
+### Class
+- t.string   :name
+- t.text     :info
+- t.datetime :time_limit_start
+- t.datetime :time_limit_end
+- t.integer  :personnel_limit
+- t.string   :limit_on_ruby
+- t.integer  :admin_id
+- t.integer  :course_id
+
+time_limit: 수강 시간 제한  
+personnel_limit: 수강 인원 제한  
+limit_on_ruby: 여기에 루비 문법을 넣으면, 그 루비 문법대로 실행되어 제한을 건다.
+### Enroll
+- t.integer :user_id
+- t.integer :class_id
+
 ## Naming rules  
--  해당TableName_ColName  
+-  이름의 구분자는 _ 로 한다(-와 PascalCase, camelCase 를 사용하지 않는다)
+-  이름은 최대한 수강신청에 알맞는 어감으로 해야 한다.(shopping -> enroll, item-> class)
+-  다음의 단어를 위주로 배치한다.
+    - enroll (등록하다)
+    - school (course의 묶음)
+    - course (class의 묶음 / 쇼핑몰의 경우 옵션)
+    - class  (신청할 대상 / 쇼핑몰의 경우 상품)
+    - limit (수강 제한의 의미)
+    - authentication (권한 제한의 의미)
 
 ## Class & Method structure
 
@@ -62,10 +103,10 @@
 
 ### Controller&View Class
 #### View  
-* 전체 item 목록    
-  * 꽉찬 item 목록 bold or fontcolor 등 별도 표시  
-* User의 개인 item 목록  
-* 중간자(지역별지점/단과대별) item 리스트  
+* 전체 class 목록    
+  * 꽉찬 class 목록 bold or fontcolor 등 별도 표시  
+* User의 개인 class 목록  
+* 중간자(지역별지점/단과대별) class 리스트  
 
 #### Controller  
 * 전체 목록 Action  
