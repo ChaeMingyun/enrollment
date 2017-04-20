@@ -8,6 +8,7 @@
  - 주기적으로 받아야 하는 예약 시스템
  - 티케팅 시스템
 
+
  이를 위해서는 다음의 기능이 필요합니다.
  - 사용자 페이지
   - 신청 가능한 목록을 표시
@@ -25,6 +26,7 @@
 - Backend: ruby on rails
 - Frontend: React.js || Angular2 || HTML ***....***
 - Database : Sqlite3, Postgre  
+
 ### Using Pakage
 - sunspot || will_paginate || kaminari
 -
@@ -73,6 +75,7 @@ t.integer  :school_id
 ```ruby
 t.string   :name
 t.string   :info
+t.string   :url
 t.text     :content
 t.datetime :time_limit_start
 t.datetime :time_limit_end
@@ -87,6 +90,8 @@ personnel_limit: 수강 인원 제한
 limit_on_ruby: 여기에 루비 문법을 넣으면, 그 루비 문법대로 실행되어 제한을 건다.
 
 앞선 Course와 Category와 다르게 설명하는 부분은 info와 content 두 부분이다. info에는 중요한 정보(강의실, 학점...)가 먼저 노출되는 자리이고, content는 이제 이미지나 내용을 이용해서 구구절절 설명하는 부분이다.
+
+수강이 완료되어 강의실에 들어가기 버튼을 누르면 url로 연결해준다.
 ### Enroll
 t.integer :user_id
 t.integer :class_id
@@ -106,19 +111,45 @@ t.integer :class_id
 
 
 ## Route
-
-## Class & Method structure
 <!--route.rb 처럼 기술하기 바람-->
 ```ruby
 root 'home#index'
+
+['post', 'put', 'delete'].each do |method|
+  ['category', 'course', 'class'].each do |name|
+    send(method, {'/api/#{method}/#{name}/:#{name}_route' => 'api##{method}_#{name}'})
+  end
+end
+
+['post', 'delete'].each do |method|
+  ['enroll','course_admin'].each do |name|
+    send(method, {'/api/#{method}/#{name}/:#{name}_route' => 'api##{method}_#{name}'})
+  end
+end
+
+get '/:category_route' => 'home#category'
+get '/:category_route/:course_route' => 'home#course'
+
+#page for admin of all, manage for course_admin
+get '/admin' => 'admin#index'
+#page for course_admin, manage for attendence in class
+get '/admin/:class_route' => 'admin#class'
 ```
-### Model Class
+
+## Class & Method structure
+### Helper Method
 * current_user : 현재 사용자를 반환
 * enroll(class_id) : 현재 사용자를 그 수업에 등록
+<!--오버라이딩 시켜서 권한 관리를 한다-->s
+* can_enroll? : 신청 시간, 인원수 외에 신청 권한을 관리. 오버라이딩을 안하면 언제나 true
 * is_class_limited?(class_id) : 현재 사용자가 이 수업을 신청할 수 있는지
 * is_class_time_limited?(class_id) : 해당 수업의 시간이 마감됐는지
 * is_class_personnel_limited?(class_id) : 해당 수업의 인원이 다 찼는지
-
+<!--오버라이딩 시켜서 권한 관리를 한다-->
+* is_admin?(class_id) : 해당 수업의 관리자인지
+<!--오버라이딩 시켜서 권한 관리를 한다-->
+* is_admin? : 파라미터가 없으면, 전체 관리자인지
+### Model Class
 ### Controller&View
 #### Controller
 * 전체 목록 Action  
@@ -130,4 +161,5 @@ root 'home#index'
   * 꽉찬 class 목록 bold or fontcolor 등 별도 표시  
 * User의 개인 class 목록  
 * 중간자(지역별지점/단과대별) class 리스트  
+
 **(Route를 정하고 구체적으로 기술 바람)**
