@@ -15,7 +15,7 @@
   - 항목에 들어가면 이미지와 정보 출력
  - 전체 관리자 페이지
   - 카테고리/목록 관리
-  - Course 관리자 임명, 퇴출
+  - Class 관리자 임명, 퇴출
  - 부분 관리자 페이지
   - 신청 목록 만들기
     - 마감 조건 설정: 기간 설정, 수량
@@ -93,9 +93,15 @@ limit_on_ruby: 여기에 루비 문법을 넣으면, 그 루비 문법대로 실
 
 수강이 완료되어 강의실에 들어가기 버튼을 누르면 url로 연결해준다.
 ### Enroll
+```ruby
 t.integer :user_id
 t.integer :class_id
-
+```
+### ClassAdmin
+```ruby
+t.integer :user_id
+t.integer :class_id
+```
 ## Naming rules  
 <!--최대한 추상적으로 광범위하게 기술 바람-->
 -  이름의 구분자는 _ 로 한다(-와 PascalCase, camelCase 를 사용하지 않는다)
@@ -122,7 +128,7 @@ root 'home#index'
 end
 
 ['post', 'delete'].each do |method|
-  ['enroll','course_admin'].each do |name|
+  ['enroll','class_admin'].each do |name|
     send(method, {'/api/#{method}/#{name}/:#{name}_route' => 'api##{method}_#{name}'})
   end
 end
@@ -130,25 +136,27 @@ end
 get '/:category_route' => 'home#category'
 get '/:category_route/:course_route' => 'home#course'
 
-#page for admin of all, manage for course_admin
+#page for admin of all, manage for class_admin
 get '/admin' => 'admin#index'
-#page for course_admin, manage for attendence in class
+#page for class_admin, manage for attendence in class
 get '/admin/:class_route' => 'admin#class'
 ```
 
 ## Class & Method structure
 ### Helper Method
 * current_user : 현재 사용자를 반환
-* enroll(class_id) : 현재 사용자를 그 수업에 등록
-<!--오버라이딩 시켜서 권한 관리를 한다-->s
+* enroll(class_id) : 현재 사용자를 그 수업에 등록  
+**ㄴ초기 설정 할때 오버라이딩으로 관리**
 * can_enroll? : 신청 시간, 인원수 외에 신청 권한을 관리. 오버라이딩을 안하면 언제나 true
 * is_class_limited?(class_id) : 현재 사용자가 이 수업을 신청할 수 있는지
 * is_class_time_limited?(class_id) : 해당 수업의 시간이 마감됐는지
 * is_class_personnel_limited?(class_id) : 해당 수업의 인원이 다 찼는지
-<!--오버라이딩 시켜서 권한 관리를 한다-->
-* is_admin?(class_id) : 해당 수업의 관리자인지
-<!--오버라이딩 시켜서 권한 관리를 한다-->
-* is_admin? : 파라미터가 없으면, 전체 관리자인지
+* is_admin?(class_id) : 해당 수업의 관리자인지  
+**ㄴ초기 설정 할때 오버라이딩으로 관리**
+* is_admin? : 파라미터가 없으면, 전체 관리자인지  
+**ㄴ초기 설정 할때 오버라이딩으로 관리**
+
+
 ### Model Class
 ### Controller&View
 #### Controller
@@ -156,6 +164,7 @@ get '/admin/:class_route' => 'admin#class'
 * 물품/강의의 각 col에 해당하는 변수들 생성  
 
 **(Route를 정하고 구체적으로 기술 바람)**
+
 #### View  
 * 전체 class 목록    
   * 꽉찬 class 목록 bold or fontcolor 등 별도 표시  
