@@ -123,13 +123,13 @@ root 'home#index'
 
 ['post', 'put', 'delete'].each do |method|
   ['category', 'course', 'class'].each do |name|
-    send(method, {'/api/#{method}/#{name}/:#{name}_route' => 'api##{method}_#{name}'})
+    send(method, {'/api/'+method+'/'+name+'/:'+name+'_route' => 'api#'+method+'_'+name})
   end
 end
 
 ['post', 'delete'].each do |method|
   ['enroll','class_admin'].each do |name|
-    send(method, {'/api/#{method}/#{name}/:#{name}_route' => 'api##{method}_#{name}'})
+    send(method, {'/api/'+method+'/'+name+'/:'+name+'_route' => 'api#'+method+'_'+name})
   end
 end
 
