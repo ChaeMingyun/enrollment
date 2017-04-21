@@ -116,7 +116,7 @@ t.integer :class_id
     - authentication (권한 제한의 의미)
 
 
-## Route
+## Routes
 <!--route.rb 처럼 기술하기 바람-->
 ```ruby
 root 'home#index'
@@ -158,17 +158,41 @@ get '/admin/:class_route' => 'admin#class'
 
 
 ### Model Class
+
 ### Controller&View
 #### Controller
-* 전체 목록 Action  
-* 물품/강의의 각 col에 해당하는 변수들 생성  
+```ruby  
+    def all_class
+      @all_class = Class.all
+
+    end
+
+    def Mypage
+      @My_lecture = Class.all
+    end
+
+    def admin
+      @all_class = Class.all
+    end
+
+    def Profession
+      @Profession_lecture
+    end
+
+    def Liberal
+      @liberal_lecture
+    end
+```
 
 **(Route를 정하고 구체적으로 기술 바람)**
 
 #### View  
-* 전체 class 목록(=all_class)  
-  * 꽉찬 class 목록 bold or fontcolor 등 별도 표시(=partial render 'fill_class')  
-* User의 개인 class 목록  
-* 중간자(지역별지점/단과대별) class 리스트  
-
+* home/all_class (전체 class 목록)  
+  * **꽉찬 class 목록 bold or font-color 등 별도 표시(=partial render 'full_class')**  
+* Mypage/My_class (User의 개인 class 목록)  
+  * 현재 내가 신청한 강의 목록 확인  
+* 학생의 경우   
+  * Category/Profession (전공강의만)  
+  * Category/Liberal (교양영역)  
+*   
 **(Route를 정하고 구체적으로 기술 바람)**
