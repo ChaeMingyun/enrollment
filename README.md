@@ -166,8 +166,8 @@ get '/admin/:class_route' => 'admin#class'
 **(Route를 정하고 구체적으로 기술 바람)**
 
 #### View  
-* 전체 class 목록    
-  * 꽉찬 class 목록 bold or fontcolor 등 별도 표시  
+* 전체 class 목록(=all_class)  
+  * 꽉찬 class 목록 bold or fontcolor 등 별도 표시(=partial render 'fill_class')  
 * User의 개인 class 목록  
 * 중간자(지역별지점/단과대별) class 리스트  
 
