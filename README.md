@@ -11,16 +11,16 @@
 
  이를 위해서는 다음의 기능이 필요합니다.
  - 사용자 페이지
-  - 신청 가능한 목록을 표시
-  - 항목에 들어가면 이미지와 정보 출력
+   - 신청 가능한 목록을 표시
+   - 항목에 들어가면 이미지와 정보 출력
  - 전체 관리자 페이지
-  - 카테고리/목록 관리
-  - Class 관리자 임명, 퇴출
+   - 카테고리/목록 관리
+   - Lecture 관리자 임명, 퇴출
  - 부분 관리자 페이지
-  - 신청 목록 만들기
-    - 마감 조건 설정: 기간 설정, 수량
-    - 이미지와 정보 입력, 생성
-    - CRUD
+   - 신청 목록 만들기
+     - 마감 조건 설정: 기간 설정, 수량
+     - 이미지와 정보 입력, 생성
+     - CRUD
 
 ## Development FrameWork
 - Backend: ruby on rails
@@ -64,14 +64,8 @@ t.string   :route_name
 t.text     :info
 ```
 info는 html_safe를 걸어서 아무 말이나 넣을 수 있게 하자
-### Course
-```ruby
-t.string   :name
-t.string   :route_name
-t.text     :info
-t.integer  :school_id
-```
-### Class
+
+### Lecture
 ```ruby
 t.string   :name
 t.string   :info
@@ -82,7 +76,7 @@ t.datetime :time_limit_end
 t.integer  :personnel_limit
 t.string   :limit_on_ruby
 t.integer  :admin_id
-t.integer  :course_id
+t.integer  :category_id
 ```
 
 time_limit: 수강 시간 제한  
@@ -92,26 +86,26 @@ limit_on_ruby: 여기에 루비 문법을 넣으면, 그 루비 문법대로 실
 앞선 Course와 Category와 다르게 설명하는 부분은 info와 content 두 부분이다. info에는 중요한 정보(강의실, 학점...)가 먼저 노출되는 자리이고, content는 이제 이미지나 내용을 이용해서 구구절절 설명하는 부분이다.
 
 수강이 완료되어 강의실에 들어가기 버튼을 누르면 url로 연결해준다.
+
 ### Enroll
 ```ruby
 t.integer :user_id
-t.integer :class_id
+t.integer :lecture_id
 ```
-### ClassAdmin
+### LectureAdmin
 ```ruby
 t.integer :user_id
-t.integer :class_id
+t.integer :lecture_id
 ```
 ## Naming rules  
 <!--최대한 추상적으로 광범위하게 기술 바람-->
 -  이름의 구분자는 _ 로 한다(-와 PascalCase, camelCase 를 사용하지 않는다)
--  이름은 최대한 수강신청에 알맞는 어감으로 해야 한다.(shopping -> enroll, item-> class)
+-  이름은 최대한 수강신청에 알맞는 어감으로 해야 한다.(shopping -> enroll, item-> lecture)
 -  boolean을 반환하는 메소드 끝에는 물음표를 붙인다.
 -  다음의 단어를 위주로 배치한다.
     - enroll (등록하다)
-    - school (course의 묶음)
-    - course (class의 묶음 / 쇼핑몰의 경우 옵션)
-    - class  (신청할 대상 / 쇼핑몰의 경우 상품)
+    - category (lecture의 묶음)
+    - lecture  (신청할 대상 / 쇼핑몰의 경우 상품)
     - limit (수강 제한의 의미)
     - authentication (권한 제한의 의미)
 
@@ -122,36 +116,36 @@ t.integer :class_id
 root 'home#index'
 
 ['post', 'put', 'delete'].each do |method|
-  ['category', 'course', 'class'].each do |name|
+  ['category', 'lecture'].each do |name|
     send(method, {'/api/'+method+'/'+name+'/:'+name+'_route' => 'api#'+method+'_'+name})
   end
 end
 
 ['post', 'delete'].each do |method|
-  ['enroll','class_admin'].each do |name|
+  ['enroll','lecture_admin'].each do |name|
     send(method, {'/api/'+method+'/'+name+'/:'+name+'_route' => 'api#'+method+'_'+name})
   end
 end
 
 get '/:category_route' => 'home#category'
-get '/:category_route/:course_route' => 'home#course'
+get '/:category_route/:lecture_route' => 'home#lecture'
 
-#page for admin of all, manage for class_admin
+#page for admin of all, manage for lecture_admin
 get '/admin' => 'admin#index'
-#page for class_admin, manage for attendence in class
-get '/admin/:class_route' => 'admin#class'
+#page for lecture_admin, manage for attendence in lecture
+get '/admin/:lecture_route' => 'admin#lecture'
 ```
 
 ## Class & Method structure
 ### Helper Method
 * current_user : 현재 사용자를 반환
-* enroll(class_id) : 현재 사용자를 그 수업에 등록  
+* enroll(lecture_id) : 현재 사용자를 그 수업에 등록  
 **ㄴ초기 설정 할때 오버라이딩으로 관리**
 * can_enroll? : 신청 시간, 인원수 외에 신청 권한을 관리. 오버라이딩을 안하면 언제나 true
-* is_class_limited?(class_id) : 현재 사용자가 이 수업을 신청할 수 있는지
-* is_class_time_limited?(class_id) : 해당 수업의 시간이 마감됐는지
-* is_class_personnel_limited?(class_id) : 해당 수업의 인원이 다 찼는지
-* is_admin?(class_id) : 해당 수업의 관리자인지  
+* is_lecture_limited?(lecture_id) : 현재 사용자가 이 수업을 신청할 수 있는지
+* is_lecture_time_limited?(lecture_id) : 해당 수업의 시간이 마감됐는지
+* is_lecture_personnel_limited?(lecture_id) : 해당 수업의 인원이 다 찼는지
+* is_admin?(lecture_id) : 해당 수업의 관리자인지  
 **ㄴ초기 설정 할때 오버라이딩으로 관리**
 * is_admin? : 파라미터가 없으면, 전체 관리자인지  
 **ㄴ초기 설정 할때 오버라이딩으로 관리**
@@ -161,18 +155,20 @@ get '/admin/:class_route' => 'admin#class'
 
 ### Controller&View
 #### Controller
+**scaffold를 적극적으로 이용하는 방향으로 수정요망.**  
+**route와 일치 필요**
 ```ruby  
-    def all_class
-      @all_class = Class.all
+    def all_lecture
+      @all_lecture = Lecture.all
 
     end
 
     def Mypage
-      @My_lecture = Class.all
+      @My_lecture = Lecture.all
     end
 
     def admin
-      @all_class = Class.all
+      @all_lecture = Lecture.all
     end
 
     def Profession
@@ -187,9 +183,9 @@ get '/admin/:class_route' => 'admin#class'
 **(Route를 정하고 구체적으로 기술 바람)**
 
 #### View  
-* home/all_class (전체 class 목록)  
-  * **꽉찬 class 목록 bold or font-color 등 별도 표시(=partial render 'full_class')**  
-* Mypage/My_class (User의 개인 class 목록)  
+* home/all_lecture (전체 lecture 목록)  
+  * **꽉찬 lecture 목록 bold or font-color 등 별도 표시(=partial render 'full_lecture')**  
+* Mypage/My_lecture (User의 개인 lecture 목록)  
   * 현재 내가 신청한 강의 목록 확인  
 * 학생의 경우   
   * Category/Profession (전공강의만)  
