@@ -28,9 +28,11 @@
 - Database : Sqlite3, Postgre  
 
 ### Using Pakage
-- sunspot || will_paginate || kaminari
--
+- will_paginate
+- devise
+
 ## Database ERD  
+<!--문서 변경사항에 따라 수정 필요-->
 * 1단계 분류 : 전체 캠퍼스(매장) 테이블  
   - Schema : 캠퍼스(지역)구분 | 캠퍼스명  
   - ex) 용인 | 죽전캠퍼스  
@@ -60,7 +62,7 @@
 ### Category
 ```ruby
 t.string   :name
-t.string   :route_name
+#t.string   :route_name
 t.text     :info
 ```
 info는 html_safe를 걸어서 아무 말이나 넣을 수 있게 하자
@@ -112,41 +114,44 @@ t.integer :lecture_id
 
 ## Routes
 <!--route.rb 처럼 기술하기 바람-->
+scaffold의 route를 참고하여 작성하기 바람  
+![scaffold post 할시 route](http://asset.blog.hibrainapps.net/saltfactory/images/fbc02a0b-dd64-4ad1-adfb-2be79890f646)
 ```ruby
-root 'home#index'
+root 'categories#index'
 
-['post', 'put', 'delete'].each do |method|
-  ['category', 'lecture'].each do |name|
-    send(method, {'/api/'+method+'/'+name+'/:'+name+'_route' => 'api#'+method+'_'+name})
+{post: 'create', put: 'update', delete: 'destroy'}.each do |method, crud|
+  ['categories', 'lectures'].each do |name|
+    send(method, {'/api/'+crud+'/'+name+'/:'+name+'_route' => name+'#'+crud})
   end
 end
 
-['post', 'delete'].each do |method|
-  ['enroll','lecture_admin'].each do |name|
-    send(method, {'/api/'+method+'/'+name+'/:'+name+'_route' => 'api#'+method+'_'+name})
+{post: 'create', delete: 'destroy'}.each do |method|
+  ['enrolls','lecture_admins'].each do |name|
+    send(method, {'/api/'+crud+'/'+name+'/:'+name+'_route' => name+'#'+crud})
   end
 end
 
-get '/:category_route' => 'home#category'
-get '/:category_route/:lecture_route' => 'home#lecture'
+get '/categories/:id' => 'categories#show'
+get '/categories/new' => 'categories#new'
+put '/categories/:id' => 'categories#update'
+get '/lectures/:id' => 'lectures#show'
+get '/lectures/new' => 'lectures#new'
+put '/lectures/:id' => 'lectures#update'
 
 #page for admin of all, manage for lecture_admin
-get '/admin' => 'admin#index'
+get '/admin' => 'lecture_admins#show'
 #page for lecture_admin, manage for attendence in lecture
-get '/admin/:lecture_route' => 'admin#lecture'
+get '/admin/:lecture_route' => 'enrolls#show'
 ```
 
 ## Class & Method structure
 ### Helper Method
 * current_user : 현재 사용자를 반환
-* enroll(lecture_id) : 현재 사용자를 그 수업에 등록  
-**ㄴ초기 설정 할때 오버라이딩으로 관리**
 * can_enroll? : 신청 시간, 인원수 외에 신청 권한을 관리. 오버라이딩을 안하면 언제나 true
 * is_lecture_limited?(lecture_id) : 현재 사용자가 이 수업을 신청할 수 있는지
 * is_lecture_time_limited?(lecture_id) : 해당 수업의 시간이 마감됐는지
 * is_lecture_personnel_limited?(lecture_id) : 해당 수업의 인원이 다 찼는지
-* is_admin?(lecture_id) : 해당 수업의 관리자인지  
-**ㄴ초기 설정 할때 오버라이딩으로 관리**
+* is_lecture_admin?(lecture_id) : 해당 수업의 관리자인지
 * is_admin? : 파라미터가 없으면, 전체 관리자인지  
 **ㄴ초기 설정 할때 오버라이딩으로 관리**
 
@@ -155,32 +160,13 @@ get '/admin/:lecture_route' => 'admin#lecture'
 
 ### Controller&View
 #### Controller
-**scaffold를 적극적으로 이용하는 방향으로 수정요망.**  
-**route와 일치 필요**
-```ruby  
-    def all_lecture
-      @all_lecture = Lecture.all
-
-    end
-
-    def Mypage
-      @My_lecture = Lecture.all
-    end
-
-    def admin
-      @all_lecture = Lecture.all
-    end
-
-    def Profession
-      @Profession_lecture
-    end
-
-    def Liberal
-      @liberal_lecture
-    end
+```bash  
+rails g scaffold category
+rails g scaffold lecture
+rails g scaffold enroll
+rails g scaffold lecture_admin
 ```
-
-**(Route를 정하고 구체적으로 기술 바람)**
+로 4가지 클래스를 우선 생성한다.
 
 #### View  
 * home/all_lecture (전체 lecture 목록)  
