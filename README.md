@@ -24,7 +24,7 @@
 
 ## Development FrameWork
 - Backend: ruby on rails
-- Frontend: React.js || Angular2 || HTML ***....***
+- Frontend: React.js & HTML ***....***
 - Database : Sqlite3, Postgre  
 
 ### Using Pakage
@@ -169,52 +169,50 @@ rails g scaffold lecture_admin
 로 4가지 클래스를 우선 생성한다.
 
 #### View  
-<p>
 * lecture/index (전체 lecture 목록)  
-  * **꽉찬 lecture 목록 bold or font-color 등 별도 표시  
+    * **꽉찬 lecture 목록 bold or font-color 등 별도 표시  
     (=render partial 'fulled_lecture')**  
 * lecture/new  
-  * 개별 강의 추가 form  
+    * 개별 강의 추가 form  
 * lecture/edit  
-  * 권한에 따라 강의에 대해 수정 가능  
-    * lecture_admin일 때 : 모두 수정 가능  
-    * 교수권한일 때 : 강의계획서만 수정 가능  
+    * 권한에 따라 강의에 대해 수정 가능  
+        * lecture_admin일 때 : 모두 수정 가능  
+        * 교수권한일 때 : 강의계획서만 수정 가능  
 * lecture/show  
-  * 개별 강의에 대한 정보  
-</p>
-<p>
+    * 개별 강의에 대한 정보  
+
+
 * category/index
-  * 강의 분류 및 하위 강의 목록 확인  
-  * **admin 권한일때만** edit페이지로 이동 가능  
+    * 강의 분류 및 하위 강의 목록 확인  
+    * **admin 권한일때만** edit페이지로 이동 가능  
 * category/new  
-  * **(lecture_admin권한일때만)** 새로운 카테고리 추가  
+    * **(lecture_admin권한일때만)** 새로운 카테고리 추가  
 * category/edit  
-  * **(lecture_admin권한일때만)** 분류에 대한 수정  
+    * **(lecture_admin권한일때만)** 분류에 대한 수정  
 * category/show  
-  * 카테고리의 정보 및 해당 카테고리의 lecture표시  
+    * 카테고리의 정보 및 해당 카테고리의 lecture표시  
     **render partial(lectrue/index) 사용**  
-</p>
-<p>
+
 * lecture_admin/index  
-  * 전체 User를 보여주고 각 관리권한 확인  
+    * 전체 User를 보여주고 각 관리권한 확인  
 * lecture_admin/new  
-  * 새로운 관리자 계정 추가 and 비관리자를 관리자로 추가  
+    * 새로운 관리자 계정 추가 and 비관리자를 관리자로 추가  
 * lecture_admin/edit  
-  * 관리자 권한 수정 및 삭제버튼,  
+    * 관리자 권한 수정 및 삭제버튼,  
 * lecture_admin/show  
-  * 관리자 목록 확인 및 수정페이지로 이동  
-</p>
-<p>
+    * 관리자 목록 확인 및 수정페이지로 이동  
+
+
 * enroll/index  
-  * 학생의 경우  
-    *  
-  * 교수의 경우  
-    *  
+    * 학생의 경우  
+        *  
+    * 교수의 경우  
+        *  
 * enroll/new  
-  *  
+    *  
 * enroll/edit  
-  *  
+    *  
 * enroll/show  
-  * 수강신청한 강의정보 보여주기  
-</p>
+    * 수강신청한 강의정보 보여주기  
+
 **(Route를 정하고 구체적으로 기술 바람)**
