@@ -6,7 +6,13 @@ module Enrollment
 
     # GET /lecture_admins
     def index
-      @lecture_admins = LectureAdmin.all
+      if !params[:user_id].nil?
+        # 유저의 경우, 누가 어떤 강의의 관리자인지 보여준다
+        @lecture_admins = LectureAdmin.find_by_user_id(params[:user_id])
+      elsif !params[lecture_id].nil?
+        # 강의의 경우, 강의의 관리자가 누구인지 보여준다
+        @lecture_admins = LectureAdmin.find_by_lecture_id(params[:lecture_id])
+      end
     end
 
     # GET /lecture_admins/1

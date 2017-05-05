@@ -6,7 +6,11 @@ module Enrollment
 
     # GET /lectures
     def index
-      @lectures = Lecture.all
+      if !params[:category_id].nil?
+        @lectures = Lecture.find_by_category_id(params[:category_id])
+      else
+        @lectures = Lecture.all
+      end
     end
 
     # GET /lectures/1
@@ -49,14 +53,14 @@ module Enrollment
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_lecture
-        @lecture = Lecture.find(params[:id])
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_lecture
+      @lecture = Lecture.find(params[:id])
+    end
 
-      # Only allow a trusted parameter "white list" through.
-      def lecture_params
-        params[:lecture]
-      end
+    # Only allow a trusted parameter "white list" through.
+    def lecture_params
+      params[:lecture]
+    end
   end
 end

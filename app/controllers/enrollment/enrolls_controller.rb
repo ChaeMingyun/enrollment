@@ -6,7 +6,13 @@ module Enrollment
 
     # GET /enrolls
     def index
-      @enrolls = Enroll.all
+      if !params[:user_id].nil?
+        # 유저의 경우, 누가 어느 강의를 신청했는지를 보여준다
+        @enrolls = Enroll.find_by_user_id(params[:user_id])
+      elsif !params[:lecture_id].nil?
+        # 강의의 경우, 어떤 강의에 누가 신청했는지를 보여준다
+        @enrolls = Enroll.find_by_lecture_id(params[:lecture_id])
+      end
     end
 
     # GET /enrolls/1
