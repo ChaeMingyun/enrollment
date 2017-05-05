@@ -1,5 +1,9 @@
 # enrollment
 
+```bash
+$ rails g check_attendence MODEL
+```
+
 ## About this gem
  이 패키지는 모든 신청에 대한 프론트와 백엔드를 구현하는 것을 목표로 합니다.  
  이 패키지는 다음의 사례에 유용하게 쓰일 것입니다.
@@ -77,7 +81,7 @@ t.datetime :time_limit_start
 t.datetime :time_limit_end
 t.integer  :personnel_limit
 t.string   :limit_on_ruby
-t.integer  :admin_id
+#t.integer  :admin_id
 t.integer  :category_id
 ```
 
@@ -169,9 +173,7 @@ rails g scaffold lecture_admin
 로 4가지 클래스를 우선 생성한다.
 
 #### View  
-* lecture/index (전체 lecture 목록)  
-    * **꽉찬 lecture 목록 bold or font-color 등 별도 표시  
-    (=render partial 'fulled_lecture')**  
+* ~~lecture/index~~    
 * lecture/new  
     * 개별 강의 추가 form  
 * lecture/edit  
@@ -180,7 +182,7 @@ rails g scaffold lecture_admin
         * 교수권한일 때 : 강의계획서만 수정 가능  
 * lecture/show  
     * 개별 강의에 대한 정보  
-
+<br>
 
 * category/index
     * 강의 분류 및 하위 강의 목록 확인  
@@ -192,16 +194,17 @@ rails g scaffold lecture_admin
 * category/show  
     * 카테고리의 정보 및 해당 카테고리의 lecture표시  
     **render partial(lectrue/index) 사용**  
+<br>
 
 * lecture_admin/index  
     * 전체 User를 보여주고 각 관리권한 확인  
 * lecture_admin/new  
-    * 새로운 관리자 계정 추가 and 비관리자를 관리자로 추가  
+    * 새로운 관리자 계정 추가 and 비관리자를 관리자로 추가
 * lecture_admin/edit  
     * 관리자 권한 수정 및 삭제버튼,  
 * lecture_admin/show  
     * 관리자 목록 확인 및 수정페이지로 이동  
-
+<br>
 
 * enroll/index  
     * 학생의 경우  
@@ -214,5 +217,5 @@ rails g scaffold lecture_admin
     *  
 * enroll/show  
     * 수강신청한 강의정보 보여주기  
-
+<br>
 **(Route를 정하고 구체적으로 기술 바람)**

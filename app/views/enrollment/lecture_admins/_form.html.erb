@@ -1,16 +1,24 @@
-<%= form_for(@lecture_admin) do |f| %>
+<%= form_for([@lecture_admin.lecture, @lecture_admin]) do |f| %>
   <% if @lecture_admin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lecture_admin.errors.count, "error") %> prohibited this lecture_admin from being saved:</h2>
 
       <ul>
-      <% @lecture_admin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @lecture_admin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :lecture %><br />
+    <%= f.text_field :lecture %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

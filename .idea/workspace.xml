@@ -2,10 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adf9419b-083c-4319-8b05-854d6f804670" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/enrollment/scaffold.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/enrollment/application_record.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/enrollment/enrollment_category.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/enrollment/enrollment_enroll.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/enrollment/enrollment_lecture.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/enrollment/enrollment_lecture_admin.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/enrollment_categories.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/enrollment_enrolls.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/enrollment_lecture_admins.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/enrollment_lectures.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/generators/enrollment/enrollment_generator.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/generators/enrollment/templates/controllers/wiki_pages_controller.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/generators/enrollment/templates/helpers/wiki_pages_helper.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/generators/enrollment/templates/migrate/create_wiki_pages.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/generators/enrollment/templates/models/wiki_page.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/generators/enrollment/templates/models/wiki_page_version.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/generators/enrollment_views/enrollment_views_generator.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/rails/routes.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/controllers/enrolls_controller_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/controllers/lecture_admins_controller_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/controllers/lectures_controller_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/enrolls.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/lecture_admins.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/lectures.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/models/enroll_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/models/lecture_admin_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/models/lecture_test.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/enrollment/application.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/layouts/enrollment/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/enrollment.iml" afterPath="$PROJECT_DIR$/.idea/enrollment.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/scaffold.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/scaffold.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/enrollment/categories_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/enrollment/categories_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/enrollment/enrolls_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/enrollment/enrolls_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/enrollment/lecture_admins_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/enrollment/lecture_admins_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/enrollment/lectures_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/enrollment/lectures_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/categories/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/categories/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/categories/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/categories/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/categories/index.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/categories/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/categories/new.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/categories/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/categories/show.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/categories/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/enrolls/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/enrolls/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/enrolls/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/enrolls/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/enrolls/index.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/enrolls/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/enrolls/new.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/enrolls/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/enrolls/show.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/enrolls/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/index.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/new.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/show.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lecture_admins/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lectures/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lectures/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lectures/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lectures/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lectures/index.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lectures/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lectures/new.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lectures/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/enrollment/lectures/show.html.erb" afterPath="$PROJECT_DIR$/app/views/enrollment/lectures/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/enrollment.gemspec" afterPath="$PROJECT_DIR$/enrollment.gemspec" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/enrollment.rb" afterPath="$PROJECT_DIR$/lib/enrollment.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/enrollment/engine.rb" afterPath="$PROJECT_DIR$/lib/enrollment/engine.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/enrollment/categories_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/enrollment/categories_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/enrollment/categories.yml" afterPath="$PROJECT_DIR$/test/fixtures/enrollment/categories.yml" />
     </list>
     <ignored path="enrollment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,8 +101,8 @@
       <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+            <state relative-caret-position="304">
+              <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -52,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/app/models/enrollment/lecture.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,8 +121,8 @@
       <file leaf-file-name="enrolls_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/enrolls_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="266">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,17 +132,17 @@
         <entry file="file://$PROJECT_DIR$/db/migrate/20170504180900_create_enrollment_lectures.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lectures_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="lectures_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/lectures_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="692">
+              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,7 +152,7 @@
         <entry file="file://$PROJECT_DIR$/lib/enrollment.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,7 +162,7 @@
         <entry file="file://$PROJECT_DIR$/app/models/enrollment/lecture_admin.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
-              <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+              <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -112,26 +172,26 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SECOND">
-              <first_editor relative-caret-position="667">
-                <caret line="72" column="16" lean-forward="false" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
-                <folding>
-                  <marker date="1493457786000" expanded="true" signature="2738:2887" ph="do ... end" />
-                  <marker date="1493457786000" expanded="true" signature="2790:2883" ph="do ... end" />
-                  <marker date="1493457786000" expanded="true" signature="2930:3075" ph="do ... end" />
-                  <marker date="1493457786000" expanded="true" signature="2978:3071" ph="do ... end" />
-                </folding>
+              <first_editor relative-caret-position="743">
+                <caret line="76" column="16" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+                <folding />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="categories_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="categories_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/categories_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-8">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1493979505000" expanded="true" signature="73:1474" ph=" ... end" />
+                <marker date="1493979505000" expanded="true" signature="102:1470" ph=" ... end" />
+                <marker date="1493979505000" expanded="true" signature="236:257" ph=" ... end" />
+                <marker date="1493979505000" expanded="true" signature="1454:1464" ph=" ... end" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,8 +199,8 @@
       <file leaf-file-name="lecture_admins_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/lecture_admins_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="361">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -180,10 +240,11 @@
         <option value="$PROJECT_DIR$/app/models/enrollment/enroll.rb" />
         <option value="$PROJECT_DIR$/app/models/enrollment/lecture_admin.rb" />
         <option value="$PROJECT_DIR$/app/models/enrollment/lecture.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/enrollment/categories_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/enrollment/enrolls_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/enrollment/lectures_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/enrollment/lecture_admins_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/enrollment/lectures_controller.rb" />
       </list>
     </option>
   </component>
@@ -436,7 +497,7 @@
       <workItem from="1493454527755" duration="1767000" />
       <workItem from="1493920980039" duration="78000" />
       <workItem from="1493921128534" duration="1029000" />
-      <workItem from="1493977062220" duration="2318000" />
+      <workItem from="1493977062220" duration="2776000" />
     </task>
     <task id="LOCAL-00001" summary="scaffold 생성">
       <created>1493921430674</created>
@@ -449,7 +510,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12879000" />
+    <option name="totallyTimeSpent" value="13337000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,7 +525,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36268175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24717286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -817,7 +878,7 @@
     <entry file="file://$PROJECT_DIR$/app/models/enrollment/lecture_admin.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -825,7 +886,7 @@
     <entry file="file://$PROJECT_DIR$/app/models/enrollment/lecture.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -833,14 +894,9 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SECOND">
-          <first_editor relative-caret-position="667">
-            <caret line="72" column="16" lean-forward="false" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
-            <folding>
-              <marker date="1493457786000" expanded="true" signature="2738:2887" ph="do ... end" />
-              <marker date="1493457786000" expanded="true" signature="2790:2883" ph="do ... end" />
-              <marker date="1493457786000" expanded="true" signature="2930:3075" ph="do ... end" />
-              <marker date="1493457786000" expanded="true" signature="2978:3071" ph="do ... end" />
-            </folding>
+          <first_editor relative-caret-position="743">
+            <caret line="76" column="16" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -849,7 +905,7 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20170504180900_create_enrollment_lectures.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -857,39 +913,7 @@
     <entry file="file://$PROJECT_DIR$/lib/enrollment.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/lectures_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/enrolls_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/lecture_admins_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -898,6 +922,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1493979505000" expanded="true" signature="73:1474" ph=" ... end" />
+            <marker date="1493979505000" expanded="true" signature="102:1470" ph=" ... end" />
+            <marker date="1493979505000" expanded="true" signature="236:257" ph=" ... end" />
+            <marker date="1493979505000" expanded="true" signature="1454:1464" ph=" ... end" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/enrolls_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/lecture_admins_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/enrollment/lectures_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="692">
+          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
       </provider>

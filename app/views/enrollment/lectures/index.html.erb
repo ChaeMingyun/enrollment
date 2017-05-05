@@ -1,25 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Lectures</h1>
+<h1>Listing lectures</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <tr>
+    <th>Name</th>
+    <th>Info</th>
+    <th>Url</th>
+    <th>Content</th>
+    <th>Time limit start</th>
+    <th>Time limit end</th>
+    <th>Personnel limit</th>
+    <th>Limit on ruby</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-  <tbody>
-    <% @lectures.each do |lecture| %>
-      <tr>
-        <td><%= link_to 'Show', lecture %></td>
-        <td><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
-        <td><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<% @lectures.each do |lecture| %>
+  <tr>
+    <td><%= lecture.name %></td>
+    <td><%= lecture.info %></td>
+    <td><%= lecture.url %></td>
+    <td><%= lecture.content %></td>
+    <td><%= lecture.time_limit_start %></td>
+    <td><%= lecture.time_limit_end %></td>
+    <td><%= lecture.personnel_limit %></td>
+    <td><%= lecture.limit_on_ruby %></td>
+    <td><%= lecture.category %></td>
+    <td><%= link_to 'Show', [lecture.category, lecture] %></td>
+    <td><%= link_to 'Edit', edit_category_lecture_path(lecture.category, lecture) %></td>
+    <td><%= link_to 'Destroy', [lecture.category, lecture], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
 </table>
 
-<br>
+<br />
 
-<%= link_to 'New Lecture', new_lecture_path %>
+<%= link_to 'New Lecture', new_category_lecture_path(params[:category_id]) %>

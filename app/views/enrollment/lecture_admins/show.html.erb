@@ -1,4 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_lecture_admin_path(@lecture_admin) %> |
-<%= link_to 'Back', lecture_admins_path %>
+<p>
+  <b>User:</b>
+  <%= @lecture_admin.user_id %>
+</p>
+
+<p>
+  <b>Lecture:</b>
+  <%= @lecture_admin.lecture %>
+</p>
+
+
+<%= link_to 'Edit', edit_lecture_lecture_admin_path(@lecture_admin.lecture, @lecture_admin) %> |
+<%= link_to 'Back', lecture_lecture_admins_path(@lecture_admin.lecture) %>

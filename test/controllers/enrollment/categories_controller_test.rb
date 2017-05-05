@@ -20,7 +20,7 @@ module Enrollment
 
     test "should create category" do
       assert_difference('Category.count') do
-        post :create, category: {  }
+        post :create, category: { string: @category.string, text: @category.text }
       end
 
       assert_redirected_to category_path(assigns(:category))
@@ -37,7 +37,7 @@ module Enrollment
     end
 
     test "should update category" do
-      patch :update, id: @category, category: {  }
+      patch :update, id: @category, category: { string: @category.string, text: @category.text }
       assert_redirected_to category_path(assigns(:category))
     end
 

@@ -1,6 +1,6 @@
-<h1>Editing Lecture Admin</h1>
+<h1>Editing lecture_admin</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @lecture_admin %> |
-<%= link_to 'Back', lecture_admins_path %>
+<%= link_to 'Show', [@lecture_admin.lecture, @lecture_admin] %> |
+<%= link_to 'Back', lecture_lecture_admins_path(@lecture_admin.lecture) %>

@@ -9,15 +9,15 @@ Gem::Specification.new do |s|
   s.version     = Enrollment::VERSION
   s.authors     = ["ChaeMinGyun"]
   s.email       = ["coalsrbs7@gmail.com"]
-  s.homepage    = ""
-  s.summary     = "Summary of Enrollment."
-  s.description = "Description of Enrollment."
+  s.homepage    = "https://github.com/ChaeMingyun/enrollment"
+  s.summary     = "useful gem for making enrollment page and shopping page"
+  s.description = "support useful api, methods and complete default page"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.6"
+  s.add_dependency "rails", ">= 4.2"
 
   s.add_development_dependency "sqlite3"
 end
