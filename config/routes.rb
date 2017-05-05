@@ -1,6 +1,11 @@
 Enrollment::Engine.routes.draw do
-  resources :lecture_admins
-  resources :enrolls
-  resources :lectures
-  resources :categories
+  resources :categories do
+    resources :lectures do
+      resources :lecture_admins, :enrolls
+    end
+  end
+
+  resources :users do
+    resources :lecture_admins, :enrolls
+  end
 end
