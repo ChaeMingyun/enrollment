@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Lecture Admins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lecture_admins.each do |lecture_admin| %>
+      <tr>
+        <td><%= link_to 'Show', lecture_admin %></td>
+        <td><%= link_to 'Edit', edit_lecture_admin_path(lecture_admin) %></td>
+        <td><%= link_to 'Destroy', lecture_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lecture admin', new_lecture_admin_path %>
