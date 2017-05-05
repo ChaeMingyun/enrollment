@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_id: 
+  name: MyString
+  info: MyString
+  url: MyString
+  content: MyText
+  time_limit_start: 2017-05-04 21:24:10
+  time_limit_end: 2017-05-04 21:24:10
+  personnel_limit: 1
+  limit_on_ruby: MyString
+  category: 
+
+two:
+  category_id: 
+  name: MyString
+  info: MyString
+  url: MyString
+  content: MyText
+  time_limit_start: 2017-05-04 21:24:10
+  time_limit_end: 2017-05-04 21:24:10
+  personnel_limit: 1
+  limit_on_ruby: MyString
+  category: 
