@@ -13,6 +13,5 @@ module Enrollment
   
 end
 
-require "rock_scissors_paper/version"
 require "enrollment/engine"
 require_relative "rails/routes"

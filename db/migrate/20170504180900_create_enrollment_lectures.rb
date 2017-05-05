@@ -1,4 +1,4 @@
-class CreateEnrollmentLectures < ActiveRecord::Migration
+class CreateEnrollmentLectures < ActiveRecord::Migration[4.2]
   def change
     create_table :enrollment_lectures do |t|
       t.string :name

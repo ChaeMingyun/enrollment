@@ -1,4 +1,4 @@
-class CreateEnrollmentLectureAdmins < ActiveRecord::Migration
+class CreateEnrollmentLectureAdmins < ActiveRecord::Migration[4.2]
   def change
     create_table :enrollment_lecture_admins do |t|
       t.integer :user_id
