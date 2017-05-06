@@ -7,11 +7,5 @@ if Enrollment.automatic_routes_mount
         resources :lecture_admins, as: :enrollment_lecture_admins
       end
     end
-    resources :lectures do
-      resources :lecture_admins, :enrolls
-    end
-    resources :users do
-      resources :lecture_admins, :enrolls
-    end
   end
 end
