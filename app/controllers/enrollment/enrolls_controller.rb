@@ -16,6 +16,7 @@ class EnrollsController < ApplicationController
 
   # GET lectures/1/enrolls/1
   def show
+    @lecture = Lecture.all
   end
 
   # GET lectures/1/enrolls/new

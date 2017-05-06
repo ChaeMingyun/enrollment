@@ -1,15 +1,30 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @enroll.user_id %>
-</p>
-
-<p>
-  <b>Lecture:</b>
-  <%= @enroll.lecture %>
-</p>
-
+<table>
+  <thead>
+    <tr>
+      <th>과목명</th>
+    </tr>
+    <tr>
+      <th>과목 정보</th>
+    </tr>
+    <tr>
+      <th>과목 내용</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lecture.each do |lecture| %>
+      <tr>
+        <td><%= lecture.name %></td>
+      </tr>
+      <tr>
+        <td><%= lecture.info %></td>
+      </tr>
+      <tr>
+        <td><%= lecture.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_lecture_enroll_path(@enroll.lecture, @enroll) %> |
 <%= link_to 'Back', lecture_enrolls_path(@enroll.lecture) %>

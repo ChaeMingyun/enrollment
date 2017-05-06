@@ -6,16 +6,17 @@ module Enrollment
 
     # GET /categories
     def index
-      @categories = EnrollmentCategory.all
+      @categories = Category.all
     end
 
     # GET /categories/1
     def show
+      @lecture = Lecture.all
     end
 
     # GET /categories/new
     def new
-      @category = EnrollmentCategory.new
+      @category = Category.new
     end
 
     # GET /categories/1/edit
@@ -24,7 +25,7 @@ module Enrollment
 
     # POST /categories
     def create
-      @category = EnrollmentCategory.new(category_params)
+      @category = Category.new(category_params)
 
       if @category.save
         redirect_to @category, notice: 'EnrollmentCategory was successfully created.'
@@ -51,7 +52,7 @@ module Enrollment
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_category
-        @category = EnrollmentCategory.find(params[:id])
+        @category = Category.find(params[:id])
       end
 
       # Only allow a trusted parameter "white list" through.

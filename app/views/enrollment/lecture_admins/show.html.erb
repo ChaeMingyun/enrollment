@@ -1,15 +1,24 @@
 <p id="notice"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>관리자</th>
+    </tr>
+    <tr>
+      <th>강의 정보</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% admin.each do |admin| %>
+      <tr>
+        <td><%= admin.user_id %></td>
+      </tr>
+      <tr>
+        <td><%= admin.lecture_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
-  <b>User:</b>
-  <%= @lecture_admin.user_id %>
-</p>
-
-<p>
-  <b>Lecture:</b>
-  <%= @lecture_admin.lecture %>
-</p>
-
-
-<%= link_to 'Edit', edit_lecture_lecture_admin_path(@lecture_admin.lecture, @lecture_admin) %> |
-<%= link_to 'Back', lecture_lecture_admins_path(@lecture_admin.lecture) %>
+<%= link_to '수정', edit_lecture_lecture_admin_path(@lecture_admin.lecture, @lecture_admin) %> |
+<%= link_to '뒤로가기', lecture_lecture_admins_path(@lecture_admin.lecture) %>

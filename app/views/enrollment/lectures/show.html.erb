@@ -1,50 +1,41 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @lecture.name %>
-</p>
-
-<p>
-  <b>Info:</b>
-  <%= @lecture.info %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @lecture.url %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @lecture.content %>
-</p>
-
-<p>
-  <b>Time limit start:</b>
-  <%= @lecture.time_limit_start %>
-</p>
-
-<p>
-  <b>Time limit end:</b>
-  <%= @lecture.time_limit_end %>
-</p>
-
-<p>
-  <b>Personnel limit:</b>
-  <%= @lecture.personnel_limit %>
-</p>
-
-<p>
-  <b>Limit on ruby:</b>
-  <%= @lecture.limit_on_ruby %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @lecture.category %>
-</p>
-
-
-<%= link_to 'Edit', edit_category_lecture_path(@lecture.category, @lecture) %> |
-<%= link_to 'Back', category_lectures_path(@lecture.category) %>
+<table>
+  <thead>
+      <tr>
+        <td>이수영역</td>
+      </tr>
+      <tr>
+        <td>과목명</td>
+      </tr>
+      <tr>
+        <td>과목 정보</td>
+      </tr>
+      <tr>
+        <td>과목 내용</td>
+      </tr>
+      <tr>
+        <td>강의계획서</td>
+      </tr>
+  </thead>
+  <tbody>
+    <% @lecture.each do |lecture| %>
+      <tr>
+        <td><%= lecture.category_id %></td>
+      </tr>
+      <tr>
+        <td><%= lecture.name %></td>
+      </tr>
+      <tr>
+        <td><%= lecture.info %></td>
+      </tr>
+      <tr>
+        <td><%= lecture.content %></td>
+      </tr>
+      <tr>
+        <td><%= lecture.url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '수정', edit_category_lecture_path(@lecture.category, @lecture) %> |
+<%= link_to '뒤로가기', category_lectures_path(@lecture.category) %>

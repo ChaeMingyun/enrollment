@@ -14,6 +14,7 @@ class LecturesController < ApplicationController
 
   # GET categories/1/lectures/1
   def show
+    @lecture = Lecture.all
   end
 
   # GET categories/1/lectures/new

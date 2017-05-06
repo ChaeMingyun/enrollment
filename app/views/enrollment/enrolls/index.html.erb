@@ -1,9 +1,9 @@
-<h1>Listing enrolls</h1>
+<h1>수강신청 정보</h1>
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Lecture</th>
+    <th>신청자</th>
+    <th>강의</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,13 +13,13 @@
   <tr>
     <td><%= enroll.user_id %></td>
     <td><%= enroll.lecture %></td>
-    <td><%= link_to 'Show', [enroll.lecture, enroll] %></td>
-    <td><%= link_to 'Edit', edit_lecture_enroll_path(enroll.lecture, enroll) %></td>
-    <td><%= link_to 'Destroy', [enroll.lecture, enroll], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to '자세히', [enroll.lecture, enroll] %></td>
+    <td><%= link_to '수정', edit_lecture_enroll_path(enroll.lecture, enroll) %></td>
+    <td><%= link_to '삭제', [enroll.lecture, enroll], :confirm => '정말 삭제하시겠습니까?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Enroll', new_lecture_enroll_path(params[:lecture_id]) %>
+<%= link_to '강의 추가', new_lecture_enroll_path(params[:lecture_id]) %>

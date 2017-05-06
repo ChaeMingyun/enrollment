@@ -16,6 +16,7 @@ class LectureAdminsController < ApplicationController
 
   # GET lectures/1/lecture_admins/1
   def show
+    @admin = LectureAdmin.all
   end
 
   # GET lectures/1/lecture_admins/new

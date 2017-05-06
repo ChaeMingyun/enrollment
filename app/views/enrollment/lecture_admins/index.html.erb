@@ -1,9 +1,9 @@
-<h1>Listing lecture_admins</h1>
+<h1>관리자 정보</h1>
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Lecture</th>
+    <th>관리자</th>
+    <th>권한</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,13 +13,13 @@
   <tr>
     <td><%= lecture_admin.user_id %></td>
     <td><%= lecture_admin.lecture %></td>
-    <td><%= link_to 'Show', [lecture_admin.lecture, lecture_admin] %></td>
-    <td><%= link_to 'Edit', edit_lecture_lecture_admin_path(lecture_admin.lecture, lecture_admin) %></td>
-    <td><%= link_to 'Destroy', [lecture_admin.lecture, lecture_admin], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to '자세히', [lecture_admin.lecture, lecture_admin] %></td>
+    <td><%= link_to '수정', edit_lecture_lecture_admin_path(lecture_admin.lecture, lecture_admin) %></td>
+    <td><%= link_to '삭제', [lecture_admin.lecture, lecture_admin], :confirm => '정말 삭제하시겠습니까?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Lecture admin', new_lecture_lecture_admin_path(params[:lecture_id]) %>
+<%= link_to '관리자 추가', new_lecture_lecture_admin_path(params[:lecture_id]) %>
