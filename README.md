@@ -193,7 +193,7 @@ rails g scaffold lecture_admin
     * **(lecture_admin권한일때만)** 분류에 대한 수정  
 * category/show  
     * 카테고리의 정보 및 해당 카테고리의 lecture표시  
-    **render partial(lectrue/index) 사용**  
+    **render partial(lecture/index) 사용**  
 <br>
 
 * lecture_admin/index  
@@ -218,4 +218,6 @@ rails g scaffold lecture_admin
 * enroll/show  
     * 수강신청한 강의정보 보여주기  
 <br>
-**(Route를 정하고 구체적으로 기술 바람)**
+**(Route를 정하고 구체적으로 기술 바람)**  
+
+*** add Gem 'tzinfo-data' for rails run in windows***
