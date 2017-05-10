@@ -20,11 +20,11 @@ class EnrollmentGenerator < Rails::Generators::Base
     Dir.foreach File.expand_path("../../../../app/helpers/enrollment", __FILE__) do |file| # Searching for files in app/views
       copy_file(file, 'app/helpers/enrollment/' + file) if file != '.' && file != '..'
     end
-=end
     # Models
     ['category','enroll','lecture_admin','lecture'].each do |dbname|
       copy_file 'app/models/enrollment/enrollment_'+dbname+'.rb', 'app/models/enrollment_'+dbname+'.rb'
     end
+=end
 
     # Migrations
     ['categories','enrolls','lecture_admins','lectures'].each do |dbname|

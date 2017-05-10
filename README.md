@@ -121,31 +121,14 @@ t.integer :lecture_id
 scaffold의 route를 참고하여 작성하기 바람  
 ![scaffold post 할시 route](http://asset.blog.hibrainapps.net/saltfactory/images/fbc02a0b-dd64-4ad1-adfb-2be79890f646)
 ```ruby
-root 'categories#index'
-
-{post: 'create', put: 'update', delete: 'destroy'}.each do |method, crud|
-  ['categories', 'lectures'].each do |name|
-    send(method, {'/api/'+crud+'/'+name+'/:'+name+'_route' => name+'#'+crud})
-  end
+resources :categories do
+  resources :lectures
 end
 
-{post: 'create', delete: 'destroy'}.each do |method|
-  ['enrolls','lecture_admins'].each do |name|
-    send(method, {'/api/'+crud+'/'+name+'/:'+name+'_route' => name+'#'+crud})
-  end
+resources :lectures do
+  resources :enrolls
+  resources :lecture_admins
 end
-
-get '/categories/:id' => 'categories#show'
-get '/categories/new' => 'categories#new'
-put '/categories/:id' => 'categories#update'
-get '/lectures/:id' => 'lectures#show'
-get '/lectures/new' => 'lectures#new'
-put '/lectures/:id' => 'lectures#update'
-
-#page for admin of all, manage for lecture_admin
-get '/admin' => 'lecture_admins#show'
-#page for lecture_admin, manage for attendence in lecture
-get '/admin/:lecture_route' => 'enrolls#show'
 ```
 
 ## Class & Method structure
@@ -173,7 +156,9 @@ rails g scaffold lecture_admin
 로 4가지 클래스를 우선 생성한다.
 
 #### View  
-* ~~lecture/index~~    
+* lecture/index    
+    * 카테고리의 정보 및 해당 카테고리의 lecture표시  
+    **render partial(category/show) 사용**  
 * lecture/new  
     * 개별 강의 추가 form  
 * lecture/edit  
@@ -182,6 +167,8 @@ rails g scaffold lecture_admin
         * 교수권한일 때 : 강의계획서만 수정 가능  
 * lecture/show  
     * 개별 강의에 대한 정보  
+    * **(해당 수강생일 때)** 누가 수강했는지 출력  
+    **render partial(enroll/index) 사용**  
 <br>
 
 * category/index
@@ -191,9 +178,7 @@ rails g scaffold lecture_admin
     * **(lecture_admin권한일때만)** 새로운 카테고리 추가  
 * category/edit  
     * **(lecture_admin권한일때만)** 분류에 대한 수정  
-* category/show  
-    * 카테고리의 정보 및 해당 카테고리의 lecture표시  
-    **render partial(lectrue/index) 사용**  
+* ~~category/show~~  
 <br>
 
 * lecture_admin/index  
@@ -208,13 +193,12 @@ rails g scaffold lecture_admin
 
 * enroll/index  
     * 학생의 경우  
-        *  
+        *  수정,삭제,추가권한 버튼 없음
     * 교수의 경우  
-        *  
+        *  수정,삭제,추가권한 버튼 있음
 * enroll/new  
     *  
-* enroll/edit  
-    *  
+* ~~enroll/edit~~  
 * enroll/show  
     * 수강신청한 강의정보 보여주기  
 <br>

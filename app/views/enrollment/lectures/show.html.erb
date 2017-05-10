@@ -48,3 +48,6 @@
 
 <%= link_to 'Edit', edit_category_lecture_path(@lecture.category, @lecture) %> |
 <%= link_to 'Back', category_lectures_path(@lecture.category) %>
+
+<%params[:lecture_id] = params[:id]%>
+<%=render template: 'enrollment/enrolls/index'%>

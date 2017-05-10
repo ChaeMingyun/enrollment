@@ -1,5 +1,5 @@
 module Enrollment
   class Category < ActiveRecord::Base
-    has_many :enrollment_lectures, :class_name => 'Enrollment::Lecture'
+    has_many :lectures, foreign_key: :enrollment_category_id
   end
 end
