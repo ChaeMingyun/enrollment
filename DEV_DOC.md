@@ -134,14 +134,13 @@ end
 ## Class & Method structure
 ### Helper Method
 * current_user : 현재 사용자를 반환
-* can_enroll? : 신청 시간, 인원수 외에 신청 권한을 관리. 오버라이딩을 안하면 언제나 true
-* is_lecture_limited?(lecture_id) : 현재 사용자가 이 수업을 신청할 수 있는지
+* can_enroll?(user_id, lecture_id) : 회원이 수업을 신청할 수 있는지. 오버라이딩을 안하면 언제나 true
+* is_lecture_limited?(lecture_id) : 수업에 신청할 수 있는지
 * is_lecture_time_limited?(lecture_id) : 해당 수업의 시간이 마감됐는지
 * is_lecture_personnel_limited?(lecture_id) : 해당 수업의 인원이 다 찼는지
 * is_lecture_admin?(lecture_id) : 해당 수업의 관리자인지
 * is_admin? : 파라미터가 없으면, 전체 관리자인지  
 **ㄴ초기 설정 할때 오버라이딩으로 관리**
-
 
 ### Model Class
 

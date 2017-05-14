@@ -6,15 +6,15 @@ module Enrollment
       # @current_user ||= session[:user_id]
     end
 
-    def can_enroll?
-
+    def can_enroll?(user_id, lecture_id)
+      true
     end
 
-    def is_lecture_limited?
-
+    def is_lecture_limited?(lecture_id)
+      true
     end
 
-    def does_lecture_time_limit_end?(lecture_id)
+    def is_lecture_time_limited?(lecture_id)
       begin
         lecture = Lecture.where(id: lecture_id).first
         return Time.current > lecture.time_limit_end
@@ -23,8 +23,7 @@ module Enrollment
       end
     end
 
-
-    def does_lecture_full?(lecture_id)
+    def is_lecture_personnel_limited?(lecture_id)
       begin
         lecture = Lecture.where(id: lecture_id).first
         return lecture.enrollment_enrolls.count >= @lecture.personnel_limit
