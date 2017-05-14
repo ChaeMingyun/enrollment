@@ -2,14 +2,16 @@ module Enrollment
   module ApplicationHelper
 
     def current_user
-      # todo : current_user 가 왜 있어야 하지?
-      # @current_user ||= session[:user_id]
+      send('current_'+ ''.user_model_name)
     end
 
-    def can_enroll?(user_id, lecture_id)
+    # user_id 가 nil 이면 current_user.id 아니면 user_id
+    # 시간제한 인원제한 포함
+    def can_enroll?(lecture_id, user_id)
       true
     end
 
+    # 시간제한이랑 인원제한 포함
     def is_lecture_limited?(lecture_id)
       true
     end
@@ -32,14 +34,13 @@ module Enrollment
       end
     end
 
-    def is_lecture_admin?(lecture_id, user_id)
-      LectureAdmin.where(lecture_id: lecture_id, user_id: user_id).any?
+    def is_lecture_admin?(lecture_id)
+      LectureAdmin.where(lecture_id: lecture_id, user_id: current_user.id).any?
     end
 
-    # 루비가 오버로딩을 지원하지 않는데...
-    # 동적 데이터 타입을 갖는 언어라서 그렇대
-    def is_admin
-
+    # user_id 가 있으면 부분관리자인지? 없으면 전체 관리자 인지?
+    def is_admin(user_id)
+      true
     end
 
 
