@@ -31,6 +31,8 @@ class EnrollmentGenerator < Rails::Generators::Base
       migration_template 'db/migrate/enrollment_'+dbname+'.rb', 'db/migrate/create_enrollment_'+dbname+'.rb'
     end
 
+    #Initializer
+    copy_file 'config/initializers/enrollment.rb', 'config/initializers/enrollment.rb'
     # Routes
     #Engine works for routes
 

@@ -1,17 +1,30 @@
 require "rails"
 
 module Enrollment
+  mattr_accessor :user_model_name
+  @@user_model_name = 'user'
+
+  mattr_accessor :user_model_main_column
+  @@user_model_main_column = "email"
+
+  # if this is true, all page needed to be signed in
+  mattr_accessor :user_only_accessable
+  @@user_only_accessable = false
+
+  mattr_accessor :root_url
+  @@root_url = "/enrollment"
+
   # automatic engine routes mouting
   mattr_accessor :automatic_routes_mount
   @@automatic_routes_mount = true
 
-  # Default way to set up Devise. Run rails generate devise_install to create
-  # a fresh initializer with all configuration values.
   def self.setup
     yield self
   end
 
 end
+
+require "enrollment/extentions"
 
 require "enrollment/version"
 require "enrollment/engine"

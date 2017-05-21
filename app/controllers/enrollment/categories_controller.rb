@@ -56,7 +56,7 @@ module Enrollment
 
       # Only allow a trusted parameter "white list" through.
       def category_params
-        params.require(:enrollment_category).permit(:name, :info)
+        params.require(:category).permit(:name, :info)
       end
   end
 end
