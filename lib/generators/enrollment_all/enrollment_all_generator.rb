@@ -27,7 +27,7 @@ class EnrollmentGenerator < Rails::Generators::Base
 =end
 
     # Migrations
-    ['categories','enrolls','lecture_admins','lectures'].each do |db_name|
+    %w(categories enrolls lecture_admins lectures).each do |db_name|
       migration_template 'db/migrate/enrollment_'+db_name+'.rb', 'db/migrate/create_enrollment_'+db_name+'.rb'
     end
 
