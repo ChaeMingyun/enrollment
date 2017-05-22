@@ -18,13 +18,7 @@ module Enrollment
         if LectureAdmin.exists?(user_id: u_id, enrollment_lecture_id: lecture_id) or Enroll.exists?(user_id: u_id, enrollment_lecture_id: lecture_id)
           false
         end
-        if Time.now.to_i < lecture.time_limit_start.to_i or Time.now.to_i > lecture.time_limit_end.to_i
-          false
-        end
-        count = Enroll.count(enrollment_lecture_id:lecture_id)
-        if lecture.personnel_limit <= count
-          false
-        end
+        is_lecture_limited? lecture_id
       end
       true
     end
@@ -33,9 +27,7 @@ module Enrollment
     def is_lecture_limited?(lecture_id)
       lecture = Lecture.where(lecture_id)
       unless lecture.nil?
-        if Time.now.to_i < lecture.time_limit_start.to_i or Time.now.to_i > lecture.time_limit_end.to_i
-          false
-        end
+        is_lecture_time_limited? lecture_id
         count = Enroll.count(enrollment_lecture_id: lecture_id)
         if lecture.personnel_limit <= count
           false
@@ -47,7 +39,11 @@ module Enrollment
     def is_lecture_time_limited?(lecture_id)
       begin
         lecture = Lecture.where(id: lecture_id).first
-        return Time.now.to_i > lecture.time_limit_end.to_i
+        if Time.now.to_i < lecture.time_limit_start.to_i or Time.now.to_i > lecture.time_limit_end.to_i
+          return false
+        else
+          return true
+        end
       rescue ActiveRecord::RecordNotFound
         return nil
       end
@@ -56,7 +52,7 @@ module Enrollment
     def is_lecture_personnel_limited?(lecture_id)
       begin
         lecture = Lecture.where(id: lecture_id).first
-        return lecture.enrollment_enrolls.count >= @lecture.personnel_limit
+        return lecture.enrollment_enrolls.count >= lecture.personnel_limit
       rescue ActiveRecord::RecordNotFound
         return nil
       end
@@ -68,7 +64,7 @@ module Enrollment
 
     def is_admin?(user_id)
       if user_id.nil?
-      #  todo: 음.. 전체관리자인지 확인 어떻게 함...?
+        true
       else
         LectureAdmin.exists?(user_id: user_id)
       end
