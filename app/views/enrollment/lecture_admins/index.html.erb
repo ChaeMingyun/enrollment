@@ -1,5 +1,3 @@
-<h1>Listing lecture_admins</h1>
-
 <table>
   <tr>
     <th>User</th>
@@ -13,8 +11,8 @@
   <tr>
     <td><%= lecture_admin.user_id %></td>
     <td><%= lecture_admin.lecture %></td>
-    <td><%= link_to 'Show', [lecture_admin.lecture, lecture_admin] %></td>
-    <td><%= link_to 'Edit', edit_lecture_lecture_admin_path(lecture_admin.lecture, lecture_admin) %></td>
+    <td><%= link_to '자세히', [lecture_admin.lecture, lecture_admin] %></td>
+    <td><%= link_to '수정', edit_lecture_lecture_admin_path(lecture_admin.lecture, lecture_admin) %></td>
     <td><%= link_to 'Destroy', [lecture_admin.lecture, lecture_admin], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

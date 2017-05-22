@@ -1,7 +1,5 @@
 <%=render template: 'enrollment/categories/show'%>
 
-<h1>Listing lectures</h1>
-
 <table>
   <tr>
     <th>Name</th>
@@ -29,8 +27,8 @@
     <td><%= lecture.personnel_limit %></td>
     <td><%= lecture.limit_on_ruby %></td>
     <td><%= lecture.category %></td>
-    <td><%= link_to 'Show', [lecture.category, lecture] %></td>
-    <td><%= link_to 'Edit', edit_category_lecture_path(lecture.category, lecture) %></td>
+    <td><%= link_to '자세히', [lecture.category, lecture] %></td>
+    <td><%= link_to '수정', edit_category_lecture_path(lecture.category, lecture) %></td>
     <td><%= link_to 'Destroy', [lecture.category, lecture], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

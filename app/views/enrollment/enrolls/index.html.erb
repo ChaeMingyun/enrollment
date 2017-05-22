@@ -1,24 +1,26 @@
 <h2>학번 : <%=@enrolls.user_id %></h2>
 <table>
-  <tr>
-    <th>강의명</th>
-    <th>강의계획서</th>
-    <th>수강신청</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @enrolls.each do |enroll| %>
-  <tr>
-    <td><%= enroll.user_id %></td>
-    <td><%= enroll.lecture %></td>
-    <td><%= link_to 'New Enroll', new_lecture_enroll_path(params[:lecture_id]) %></td>
-  </tr>
-<% end %>
+  <thead>
+    <tr>
+      <th>강의명</th>
+      <th>강의계획서</th>
+      <th>수강신청</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @enrolls.each do |enroll| %>
+    <tr>
+      <td><%= enroll.user_id %></td>
+      <td><%= enroll.lecture %></td>
+      <td><%= link_to '신청하기', new_lecture_enroll_path(params[:lecture_id]) %></td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
 
 
-
-<%#= link_to 'Show', [enroll.lecture, enroll] %>
-<%#= link_to 'Edit', edit_lecture_enroll_path(enroll.lecture, enroll) %>
+<%#= link_to '자세히', [enroll.lecture, enroll] %>
+<%#= link_to '수정', edit_lecture_enroll_path(enroll.lecture, enroll) %>
 <%#= link_to 'Destroy', [enroll.lecture, enroll], :confirm => 'Are you sure?', :method => :delete %>

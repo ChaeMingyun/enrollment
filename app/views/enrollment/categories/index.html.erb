@@ -16,8 +16,8 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= category.info %></td>
-        <td><%= link_to 'Show', category_lectures_path(category) %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to '자세히', category_lectures_path(category) %></td>
+        <td><%= link_to '수정', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

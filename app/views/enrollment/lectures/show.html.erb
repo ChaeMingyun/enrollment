@@ -46,8 +46,8 @@
 </p>
 
 
-<%= link_to 'Edit', edit_category_lecture_path(@lecture.category, @lecture) %> |
-<%= link_to 'Back', category_lectures_path(@lecture.category) %>
+<%= link_to '수정', edit_category_lecture_path(@lecture.category, @lecture) %> |
+<%= link_to '뒤로가기', category_lectures_path(@lecture.category) %>
 
 <%params[:lecture_id] = params[:id]%>
 <%=render template: 'enrollment/enrolls/index'%>

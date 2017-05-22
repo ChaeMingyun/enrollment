@@ -1,15 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h1>수강신청 목록</h1>
+<h2>학번 : <%= @Lecture.name %></h2>
 
-<p>
-  <b>User:</b>
-  <%= @enroll.user_id %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>강의</th>
+      <tH>강의계획서</tH>
+    </tr>
+  </thead>
+  <tbody>
+    <%=Lecture.each do |l| %>
+    <tr>
+      <td><%=@l.enrolls.id %></td>
+      <td><%= %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
-  <b>Lecture:</b>
-  <%= @enroll.lecture %>
-</p>
 
-
-<%= link_to 'Edit', edit_lecture_enroll_path(@enroll.lecture, @enroll) %> |
-<%= link_to 'Back', category_lecture_path(@enroll.lecture.category,@enroll.lecture) %>
+<%#= link_to '수정', edit_lecture_enroll_path(@enroll.lecture, @enroll) %> |
+<%#= link_to '뒤로가기', category_lecture_path(@enroll.lecture.category,@enroll.lecture) %>
