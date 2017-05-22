@@ -8,8 +8,8 @@ module Enrollment
   @@user_model_main_column = "email"
 
   # if this is true, all page needed to be signed in
-  mattr_accessor :user_only_accessable
-  @@user_only_accessable = false
+  mattr_accessor :user_only_accessible
+  @@user_only_accessible = false
 
   mattr_accessor :root_url
   @@root_url = "/enrollment"

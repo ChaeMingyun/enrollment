@@ -27,8 +27,8 @@ class EnrollmentGenerator < Rails::Generators::Base
 =end
 
     # Migrations
-    ['categories','enrolls','lecture_admins','lectures'].each do |dbname|
-      migration_template 'db/migrate/enrollment_'+dbname+'.rb', 'db/migrate/create_enrollment_'+dbname+'.rb'
+    ['categories','enrolls','lecture_admins','lectures'].each do |db_name|
+      migration_template 'db/migrate/enrollment_'+db_name+'.rb', 'db/migrate/create_enrollment_'+db_name+'.rb'
     end
 
     #Initializer
@@ -38,7 +38,7 @@ class EnrollmentGenerator < Rails::Generators::Base
 
   end
 
-  def self.next_migration_number(dirname)
-    ActiveRecord::Generators::Base.next_migration_number dirname
+  def self.next_migration_number(dir_name)
+    ActiveRecord::Generators::Base.next_migration_number dir_name
   end
 end

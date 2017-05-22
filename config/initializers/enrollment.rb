@@ -16,7 +16,7 @@ Enrollment.setup do |config|
   config.user_model_main_column = "email"
 
   # if this is true, all page needed to be signed in
-  config.user_only_accessable = false
+  config.user_only_accessible = false
 
   #root url for engine
   config.root_url = "/enrollment"

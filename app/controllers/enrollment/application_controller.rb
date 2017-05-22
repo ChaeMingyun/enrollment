@@ -1,6 +1,6 @@
 module Enrollment
   class ApplicationController < ActionController::Base
-    if Enrollment.user_only_accessable
+    if Enrollment.user_only_accessible
       before_action :authenticate_user!
     end
     protect_from_forgery with: :exception

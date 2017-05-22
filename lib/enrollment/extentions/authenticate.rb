@@ -8,7 +8,7 @@ module Enrollment
       send('authenticate_'+ Enrollment.user_model_name+'!')
     end
 
-    def User
+    def user
       Enrollment.user_model_name.capitalize.constantize
     end
   end
