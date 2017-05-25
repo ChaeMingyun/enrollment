@@ -48,6 +48,10 @@
 
 <%= link_to 'Edit', edit_category_lecture_path(@lecture.category, @lecture) %> |
 <%= link_to 'Back', category_lectures_path(@lecture.category) %>
+<%if is_admin?%>
+ | 
+<%= link_to '관리자 임명하기', lecture_lecture_admins_path(@lecture) %>
+<%end%>
 
 <%params[:lecture_id] = params[:id]%>
 <%=render template: 'enrollment/enrolls/index'%>
