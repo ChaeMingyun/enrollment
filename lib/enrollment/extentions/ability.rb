@@ -1,10 +1,14 @@
 module Enrollment
   module Ability
-    def current_user
-      user_model_name = Enrollment.user_model_name
-      send('current_' + user_model_name.to_s)
-    end
 
+    def is_enrolled?(lecture_id)
+      lecture = Lecture.find(lecture_id)
+      if lecture.enrolls.where(user_id:current_user.id).limit(1)
+        true
+      else
+        false
+      end
+    end
     # user_id 가 nil 이면 current_user.id 아니면 user_id
     # 시간제한 인원제한 포함
     def can_enroll?(lecture_id, user_id)
@@ -25,7 +29,7 @@ module Enrollment
 
     # 시간제한이랑 인원제한 포함
     def is_lecture_limited?(lecture_id)
-      lecture = Lecture.where(lecture_id)
+      lecture = Lecture.find(lecture_id)
       unless lecture.nil?
         is_lecture_time_limited? lecture_id
         count = Enroll.count(enrollment_lecture_id: lecture_id)
@@ -38,7 +42,7 @@ module Enrollment
 
     def is_lecture_time_limited?(lecture_id)
       begin
-        lecture = Lecture.where(id: lecture_id).first
+        lecture = Lecture.find(lecture_id)
         if Time.now.to_i < lecture.time_limit_start.to_i or Time.now.to_i > lecture.time_limit_end.to_i
           return false
         else

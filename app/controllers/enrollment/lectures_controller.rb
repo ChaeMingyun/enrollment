@@ -1,3 +1,5 @@
+require_dependency "enrollment/application_controller"
+
 module Enrollment
   class LecturesController < ApplicationController
     before_action :set_lectures
