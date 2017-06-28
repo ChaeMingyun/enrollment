@@ -2,3 +2,43 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+body{margin:0;}
+.content, .title>#textbox{
+  max-width:800px;
+  margin:0 auto;
+}
+.title{
+  padding:30px;
+  background-size: 100% auto;
+  background-position:center top;
+  color:white
+}
+.title>#textbox{
+  position: relative;
+}
+.title #category_title{
+  color:gray;
+  font-size: 12px;
+}
+.title #title{
+  margin-top: 0;
+}
+.title #title_right_btn{
+  float: right;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 10px 30px;
+  font-weight: bold;
+  color:white;
+  border: white solid 2px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.details{
+  margin-top: 20px;
+  background: #795548;
+  color:white;
+  border-radius: 10px;
+  padding: 10px;
+}

@@ -1,57 +1,45 @@
+<%= stylesheet_link_tag  'enrollment/lectures', media: 'all', 'data-turbolinks-track' => true %>
 <p id="notice"><%= notice %></p>
+<div class="title" style="background-image:linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(<%=image_path('enrollment/title_background.jpg')%>)">
+  <div id="textbox">
+    <div style="float:left;width:75%">
+      <span id="category_title"><%= @lecture.category.name %></span>
+      <h1 id="title"><%= @lecture.name %></h1>
+    </div>
+    <%if en_current_user && can_enroll?(@lecture.id,en_current_user.id)%>
+    <a href="<%=  new_lecture_enroll_path(@lecture.id) %>"><button id="title_right_btn">수강하기</button></a>
+    <%elsif en_current_user && is_enrolled?(@lecture.id)%>
+    <a href="<%=@lecture.url%>">강의실</a>
+    <%else%>
+    <button id="title_right_btn" disabled="true">신청불가</button>
+    <%end%>
+    <div style="clear:both"></div>
+  </div>
+</div>
+<div class="content">
+  <div class="details">
+    <p>
+      <b>수강 신청 기간:</b>
+      <%= @lecture.time_limit_start %> ~ <%= @lecture.time_limit_end %>
+    </p>
 
-<p>
-  <b>Name:</b>
-  <%= @lecture.name %>
-</p>
+    <p>
+      <b>인원수 제한:</b>
+      <%= @lecture.personnel_limit %>
+    </p>
+    <%= @lecture.info %>
+  </div>
 
-<p>
-  <b>Info:</b>
-  <%= @lecture.info %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @lecture.url %>
-</p>
-
-<p>
-  <b>Content:</b>
   <%= @lecture.content %>
-</p>
+<br>
+  <%= link_to 'Edit', edit_category_lecture_path(@lecture.category, @lecture) %> |
+  <%= link_to 'Back', category_lectures_path(@lecture.category) %>
+  <%if is_admin?%>
+   |
+  <%= link_to '관리자 임명하기', lecture_lecture_admins_path(@lecture) %>
+  <%end%>
 
-<p>
-  <b>Time limit start:</b>
-  <%= @lecture.time_limit_start %>
-</p>
-
-<p>
-  <b>Time limit end:</b>
-  <%= @lecture.time_limit_end %>
-</p>
-
-<p>
-  <b>Personnel limit:</b>
-  <%= @lecture.personnel_limit %>
-</p>
-
-<p>
-  <b>Limit on ruby:</b>
-  <%= @lecture.limit_on_ruby %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @lecture.category %>
-</p>
-
-
-<%= link_to 'Edit', edit_category_lecture_path(@lecture.category, @lecture) %> |
-<%= link_to 'Back', category_lectures_path(@lecture.category) %>
-<%if is_admin?%>
- | 
-<%= link_to '관리자 임명하기', lecture_lecture_admins_path(@lecture) %>
-<%end%>
-
-<%params[:lecture_id] = params[:id]%>
-<%=render template: 'enrollment/enrolls/index'%>
+  <%params[:lecture_id] = params[:id]%>
+  <%=render template: 'enrollment/enrolls/index'%>
+</div>
+<%= javascript_include_tag "enrollment/application" %>

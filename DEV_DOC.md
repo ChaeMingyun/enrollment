@@ -81,7 +81,6 @@ t.datetime :time_limit_start
 t.datetime :time_limit_end
 t.integer  :personnel_limit
 t.string   :limit_on_ruby
-#t.integer  :admin_id
 t.integer  :category_id
 ```
 

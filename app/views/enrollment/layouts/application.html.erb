@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enrollment</title>
+  <%= stylesheet_link_tag    "enrollment/application", media: "all" %>
+  <%= javascript_include_tag "enrollment/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<script>
+  if(!window.jQuery)
+  {
+     var script = document.createElement('script');
+     script.type = "text/javascript";
+     script.src = "https://code.jquery.com/jquery-1.12.4.min.js";
+
+     document.getElementsByTagName('head')[0].appendChild(script);
+  }
+  if(!$.rails)
+  {
+     var script = document.createElement('script');
+     script.type = "text/javascript";
+     script.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.min.js";
+
+     document.getElementsByTagName('head')[0].appendChild(script);
+  }
+</script>
+
+</body>
+</html>

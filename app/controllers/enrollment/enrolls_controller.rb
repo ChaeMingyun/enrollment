@@ -1,3 +1,5 @@
+require_dependency "enrollment/application_controller"
+
 module Enrollment
   class EnrollsController < ApplicationController
     before_action :set_enrolls
@@ -14,7 +16,8 @@ module Enrollment
 
     # GET lectures/1/enrolls/new
     def new
-      @enroll = @lecture.enrolls.build
+      @enroll = @lecture.enrolls.build(user_id: en_current_user.id).save
+      redirect_to :back
     end
 
     # GET lectures/1/enrolls/1/edit
