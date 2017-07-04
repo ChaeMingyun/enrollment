@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag  'enrollment/lectures', media: 'all', 'data-turbolinks-track' => true %>
 <%= form_for([@lecture.category, @lecture]) do |f| %>
   <% if @lecture.errors.any? %>
     <div id="error_explanation">
@@ -11,39 +12,39 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field container">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="field container">
     <%= f.label :info %><br />
     <%= f.text_field :info %>
   </div>
-  <div class="field">
+  <div class="field container">
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
-  <div class="field">
+  <div class="field container">
     <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class:'not_resizable', cols: 70%>
   </div>
-  <div class="field">
+  <div class="field container">
     <%= f.label :time_limit_start %><br />
     <%= f.datetime_select :time_limit_start %>
   </div>
-  <div class="field">
+  <div class="field container">
     <%= f.label :time_limit_end %><br />
     <%= f.datetime_select :time_limit_end %>
   </div>
-  <div class="field">
+  <div class="field container">
     <%= f.label :personnel_limit %><br />
     <%= f.number_field :personnel_limit %>
   </div>
-  <div class="field">
+  <div class="field container">
     <%= f.label :limit_on_ruby %><br />
     <%= f.text_field :limit_on_ruby %>
   </div>
-  <div class="actions">
+  <div class="actions container">
     <%= f.submit %>
   </div>
 <% end %>

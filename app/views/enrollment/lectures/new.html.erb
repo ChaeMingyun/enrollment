@@ -1,5 +1,9 @@
-<h1>New lecture</h1>
-
+<%= stylesheet_link_tag 'enrollment/lectures', media: 'all', 'data-turbolinks-track' => true %>
+<div class="container">
+  <h1>New lecture</h1>
+</div>
 <%= render 'form' %>
 
-<%= link_to 'Back', category_lectures_path(@lecture.category) %>
+<div class="container">
+  <%= link_to 'Back', category_lectures_path(@lecture.category) %>
+</div>
