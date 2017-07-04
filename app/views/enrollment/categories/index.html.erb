@@ -1,15 +1,9 @@
 <p id="notice"><%= notice %></p>
 <%= javascript_include_tag "enrollment/application" %>
 
-<%= content_tag :h1, '카테고리 분류' %>
-
 <table>
   <thead>
-    <tr>
-      <th>이름</th>
-      <th>내용</th>
-      <th colspan="3">데이터 수정</th>
-    </tr>
+
   </thead>
 
   <tbody>
@@ -24,15 +18,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to '새 강의 분류', new_category_path %>
-
-<style>
-  table, th, tr, td
-  {
-    text-align: center;
-    border: 1px solid black;
-  }
-</style>
+<div class="new">
+  <%= link_to '새 강의 분류', new_category_path %>
+</div>

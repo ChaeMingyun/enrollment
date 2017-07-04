@@ -10,16 +10,20 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :info %><br>
-    <%= f.text_field :info %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="container">
+    <div class="field">
+        <%= f.label :이름 %> &nbsp;
+        <%= f.text_field :name %>
+        <br><br>
+        <%= f.label :정보 %> &nbsp;
+        <%= f.text_field :info %>
+      <br><br>
+    </div>
+    <div class="actions">
+      <%= f.submit '확인' %>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="window.location.href='/categories/index.html.erb'">취소</button><%#= link_to '취소', categories_path %>
+    </div>
   </div>
 <% end %>
+<footer class="bottom">
+  <h4>Made by Communis</h4>
+</footer>

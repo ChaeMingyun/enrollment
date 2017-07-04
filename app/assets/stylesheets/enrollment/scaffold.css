@@ -17,6 +17,7 @@ a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
 div.field, div.actions {
+  text-align: center;
   margin-bottom: 10px;
 }
 
@@ -53,4 +54,42 @@ div.field, div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
+}
+
+.bottom
+{
+  margin-right: 35%;
+  color: #38a6ff;
+  text-align: right;
+}
+
+.container
+{
+  margin: 20px 35% 0% 35%;
+}
+
+.actions, .field
+{
+  text-align: center;
+}
+
+.new
+{
+  margin-top: 5%;
+  margin-left: 62%;
+}
+
+.name
+{
+  text-align: center;
+}
+
+table, thead, tbody, th, td, tr
+{
+  text-align: center;
+}
+h1, h3
+{
+  text-align: center;
+  margin: auto;
 }

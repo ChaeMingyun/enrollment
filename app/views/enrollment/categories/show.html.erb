@@ -1,14 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<p>
-  <strong>Info:</strong>
-  <%= @category.info %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<h1 class="name"><%= @category.name %></h1>
+<h3 class="name"><%= @category.info %></h3><br>
+<%= link_to '수정', edit_category_path(@category) %> | <%= link_to '뒤로가기', categories_path %>
