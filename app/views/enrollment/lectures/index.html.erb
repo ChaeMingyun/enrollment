@@ -1,5 +1,5 @@
-<%=render template: 'enrollment/categories/show'%>
-
+<%= stylesheet_link_tag 'enrollment/lectures', media: 'all', 'data-turbolinks-track' => true %>
+<%= render template: 'enrollment/categories/show' %>
 <h1>Listing lectures</h1>
 
 <table>
@@ -18,24 +18,24 @@
     <th></th>
   </tr>
 
-<% @lectures.each do |lecture| %>
-  <tr>
-    <td><%= lecture.name %></td>
-    <td><%= lecture.info %></td>
-    <td><%= lecture.url %></td>
-    <td><%= lecture.content %></td>
-    <td><%= lecture.time_limit_start %></td>
-    <td><%= lecture.time_limit_end %></td>
-    <td><%= lecture.personnel_limit %></td>
-    <td><%= lecture.limit_on_ruby %></td>
-    <td><%= lecture.category %></td>
-    <td><%= link_to 'Show', [lecture.category, lecture] %></td>
-    <td><%= link_to 'Edit', edit_category_lecture_path(lecture.category, lecture) %></td>
-    <td><%= link_to 'Destroy', [lecture.category, lecture], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @lectures.each do |lecture| %>
+      <tr>
+        <td><%= lecture.name %></td>
+        <td><%= lecture.info %></td>
+        <td><%= lecture.url %></td>
+        <td><%= lecture.content %></td>
+        <td><%= lecture.time_limit_start %></td>
+        <td><%= lecture.time_limit_end %></td>
+        <td><%= lecture.personnel_limit %></td>
+        <td><%= lecture.limit_on_ruby %></td>
+        <td><%= lecture.category %></td>
+        <td><%= link_to 'Show', [lecture.category, lecture] %></td>
+        <td><%= link_to 'Edit', edit_category_lecture_path(lecture.category, lecture) %></td>
+        <td><%= link_to 'Destroy', [lecture.category, lecture], :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New Lecture', new_category_lecture_path(params[:category_id]) %>

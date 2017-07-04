@@ -1,6 +1,8 @@
-<h1>Editing lecture</h1>
-
+<div class="container">
+  <h1>Editing lecture</h1>
+</div>
 <%= render 'form' %>
-
-<%= link_to 'Show', [@lecture.category, @lecture] %> |
-<%= link_to 'Back', category_lectures_path(@lecture.category) %>
+<div class="container">
+  <%= link_to 'Show', [@lecture.category, @lecture] %> |
+  <%= link_to 'Back', category_lectures_path(@lecture.category) %>
+</div>
